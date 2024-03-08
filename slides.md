@@ -302,4 +302,67 @@ button {
 }
 </style>
 ```
+---
 
+# Nuxt
+
+* Nasz projekt od strony frontendu będzie tworzony w frameworku Nuxt, będacy frameworkiem Vue
+* Dostarcza cały ekosystem Vue w jednym miejscu, co pozwala na szybkie tworzenie aplikacji
+* *Ekosystem - zbiór narzędzi, bibliotek, frameworków, które są ze sobą kompatybilne i współpracują ze sobą*
+* Nuxt dostarcza między innymi:
+    * routing
+    * SSR (Server Side Rendering)
+    * generowanie statycznych stron
+    * store
+    * ...i wiele innych
+---
+
+# Routing
+
+* Routing w Nuxt jest bardzo prosty, ponieważ jest oparty na plikach
+* W katalogu ```/pages``` tworzymy pliki .vue, które będą naszymi stronami
+* Nuxt automatycznie tworzy routing na podstawie tych plików
+* *Routing - mechanizm, który pozwala na przechodzenie między różnymi stronami w aplikacji*
+* Przykładowo, jeżeli mamy plik ```/pages/about.vue```, to nasza strona będzie dostępna pod adresem ```/about```
+* Możemy również tworzyć foldery, które będą grupować nasze strony
+* *Foldery w Nuxt są traktowane jako grupy, które mogą zawierać inne foldery lub pliki .vue*
+* *Nuxt automatycznie tworzy routing na podstawie tych plików*
+---
+
+# SSR
+
+* SSR (Server Side Rendering) to technika, która polega na generowaniu widoku aplikacji po stronie serwera, a nie po stronie klienta
+* *Widok - to to, co widzi użytkownik, czyli to, co jest wyświetlane w przeglądarce*
+* Dzięki SSR, aplikacja jest ładowana szybciej, ponieważ serwer generuje widok, a nie klient
+* Nuxt automatycznie generuje SSR dla naszej aplikacji
+---
+
+# Generowanie statycznych stron
+
+* Nuxt pozwala na generowanie statycznych stron, co oznacza, że możemy wygenerować pliki HTML, CSS i JS, które możemy wrzucić na serwer
+* *Statyczne strony - strony, które są generowane raz, a następnie są dostępne dla użytkowników, bez konieczności generowania ich za każdym razem, gdy użytkownik odwiedza stronę*
+* Dzięki temu, nasza aplikacja jest szybsza, ponieważ nie musi generować widoku za każdym razem, gdy użytkownik odwiedza stronę
+
+---
+
+# Store
+
+* Store w Nuxt to miejsce, w którym przechowujemy dane, które są współdzielone między różnymi komponentami
+* *Dane współdzielone - dane, które są dostępne dla wielu komponentów, a nie tylko dla jednego*
+* Store w Nuxt jest oparty najczęściej na Pinia, który jest biblioteką do zarządzania stanem w aplikacjach Vue
+---
+
+# Middleware
+
+* Middleware w Nuxt to funkcje, które są wywoływane przed wyrenderowaniem strony
+* Dzięki middleware, możemy wykonywać różne operacje, takie jak autoryzacja, walidacja, logowanie, itp.
+* Middleware w Nuxt są oparte na plikach, które są umieszczone w katalogu ```/middleware```
+---
+
+# Tyle!
+
+* Zadanie dla Was: zainstalujcie Nuxt i spróbujcie stworzyć TODO listę
+* *Nuxt można uruchomić na stronie https://nuxt.new/s/v3 lub zainstalować lokalnie za pomocą ```npx create-nuxt-app```, uprzednio należy zainstalować NodeJS*
+* Do tego mogą być potrzebne: reactive, v-model; input, button w formularzu
+
+<TodoList />
