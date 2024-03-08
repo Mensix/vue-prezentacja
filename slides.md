@@ -145,6 +145,74 @@ const number = ref(0)
 <BasicIf />
 ---
 
+# Komponenty
+
+* Załóżmy, że w katalogu ```/components``` mamy nastepujący plik ```me.vue```
+
+```vue
+<script setup lang="ts">
+defineProps<{
+  name: string
+}>();
+
+defineEmits<{
+  (e: 'hello'): void
+}>();
+</script>
+
+<template>
+  <p @click="$emit('hello', name)">{{ name }}</p>
+</template>
+```
+---
+
+# Komponenty
+
+* Wówczas to w dowolnym innym pliku .vue możemy użyć tego komponentu
+
+```vue
+<script setup lang="ts">
+import Me from './components/me.vue'
+
+function handleHello(name: string) {
+  console.log('Użytkownik kliknął w imię! ' + name);
+}
+</script>
+
+<template>
+  <Me name="Grzegorz" @hello="handleHello" />
+</template>
+```
+
+Grzegorz
+---
+
+# Słowo o komponentach
+
+* W poprzednim kodzie pojawiło się kilka nowych rzeczy
+    * Za pomocą makra ```defineProps``` definiujemy atrybuty (ang. props) naszego komponentu i jego typ
+    * *Atrybuty mogą również przyjmować zmienne za pomocą wstawienia dwukropka przed jego nazwą*
+
+```ts
+defineProps<{
+  name: string // tylko string lub funkcja zwracająca string jest dozwolona
+  nazwisko?: string // ? mówi, że prop nie jest wymagany
+}>()
+```
+
+  * A za pomocą makra ```defineEmits``` tworzymy własne eventy komponentu, opcjonalnie jego argumenty i zwracany typ
+    * W bloku ```script``` możemy wywoływać wywołanie eventa, przypisując zmienną do wartości emitów i wywołując ją poprzez tą zmienną, mając na uwadze sygnaturę
+    * Natomiast w bloku ```template``` w tym celu używamy dostępnej w nim funkcji ```$emit```
+
+```ts
+const emits = defineEmits<{
+  (e: 'hello', name: string): void // pod e nazywamy nasz event, a po nim podajemy argumenty
+}>()
+
+emits('hello', 'Grzegorz')
+```
+---
+
 # Zanim script
 
 * Podstawą działania Vue jest *reaktywność*
