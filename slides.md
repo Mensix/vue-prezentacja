@@ -145,6 +145,27 @@ const number = ref(0)
 <BasicIf />
 ---
 
+# Dyrektywy cd.
+
+<!-- v-model -->
+* v-model
+  * Dyrektywa v-model jest używana do tworzenia dwukierunkowego wiązania danych (ang. two-way value binding), co oznacza, że zmiana wartości w polu formularza zmienia wartość zmiennej, a zmiana wartości zmiennej zmienia wartość pola formularza
+  * Dyrektywa v-model działa zarówno na elementach input, select, textarea, jak i na komponentach stworzonych przez użytkownika
+
+```vue
+<script setup lang="ts">
+const name = ref('')
+</script>
+
+<template>
+  <input v-model="name" />
+  <p>{{ name }}</p>
+</template>
+```
+
+<BasicModel />
+---
+
 # Komponenty
 
 * Załóżmy, że w katalogu ```/components``` mamy nastepujący plik ```me.vue```
@@ -191,7 +212,7 @@ Grzegorz
 
 * W poprzednim kodzie pojawiło się kilka nowych rzeczy
     * Za pomocą makra ```defineProps``` definiujemy atrybuty (ang. props) naszego komponentu i jego typ
-    * *Atrybuty mogą również przyjmować zmienne za pomocą wstawienia dwukropka przed jego nazwą*
+    * *Atrybuty mogą również przyjmować zmienne za pomocą wstawienia dwukropka przed jego nazwą w template*
 
 ```ts
 defineProps<{
